@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cheetech IT Solution – Empowering Businesses with Innovative IT & Digital Solutions</title>
+  <meta name="description" content="Cheetech IT Solutions – A Tamil Nadu based IT company providing website development, mobile apps, UI/UX, digital marketing, video production, and business consultancy services." />
+  <meta name="keywords" content="IT Solutions, Web Development, Mobile App, Digital Marketing, UI/UX Design, Tamil Nadu, Cheetech" />
+  <meta name="author" content="Cheetech IT Solutions" />
+  <meta property="og:title" content="Cheetech IT Solution" />
+  <meta property="og:description" content="Empowering Businesses with Innovative IT & Digital Solutions" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Manrope + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════
+       HEADER / TOP NAVIGATION
+  ═══════════════════════════════════════════════════════════ -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+
+      <!-- Logo -->
+      <a class="header-logo" href="#home" onclick="navigateTo('home')">
+        <div class="logo-badge-container">
+          <img src="/assets/logo.png" alt="Cheetech IT Solutions Logo" class="logo-img-blend" />
+        </div>
+        <div class="header-logo-text">
+          <span class="logo-title">Cheetech</span>
+          <span class="logo-sub">IT SOLUTION</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="header-nav" role="navigation" aria-label="Main Navigation">
+        <a href="#home" class="nav-link active" id="nav-home" data-page="home">
+          <i class="fa-solid fa-house"></i><span>Home</span>
+        </a>
+        <a href="#about" class="nav-link" id="nav-about" data-page="about">
+          <i class="fa-solid fa-circle-info"></i><span>About Us</span>
+        </a>
+        <a href="#services" class="nav-link" id="nav-services" data-page="services">
+          <i class="fa-solid fa-layer-group"></i><span>Services</span>
+        </a>
+        <a href="#careers" class="nav-link" id="nav-careers" data-page="careers">
+          <i class="fa-solid fa-briefcase"></i><span>Jobs &amp; Career</span>
+        </a>
+        <a href="#contact" class="nav-link" id="nav-contact" data-page="contact">
+          <i class="fa-solid fa-envelope"></i><span>Contact</span>
+        </a>
+      </nav>
+
+      <!-- Hamburger -->
+      <div class="header-actions">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Nav -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="#home" class="mob-nav-link" data-page="home"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="#about" class="mob-nav-link" data-page="about"><i class="fa-solid fa-circle-info"></i> About Us</a>
+      <a href="#services" class="mob-nav-link" data-page="services"><i class="fa-solid fa-layer-group"></i> Services</a>
+      <a href="#careers" class="mob-nav-link" data-page="careers"><i class="fa-solid fa-briefcase"></i> Jobs &amp; Career</a>
+      <a href="#contact" class="mob-nav-link" data-page="contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════════════════════════════════════ -->
+  <main class="main-content" id="mainContent">
+
+    <!-- ════════════════════════════════════════
+         HOME PAGE
+    ════════════════════════════════════════ -->
+    <section class="page active" id="page-home">
+
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i ></i> Tamil Nadu's Growing IT Company
+          </div>
+          <h1 class="hero-title">Empowering Businesses with<br/><span class="gold-text">Innovative IT</span> &amp; <span class="red-text">Digital Solutions</span></h1>
+          <p class="hero-subtitle">Welcome to <strong>Cheetech IT Solutions</strong></p>
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="navigateTo('services')">
+              <i class="fa-solid fa-rocket"></i> Our Services
+            </button>
+            <button class="btn-outline" onclick="navigateTo('contact')">
+              <i class="fa-solid fa-handshake"></i> Let's Talk
+            </button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-orb"></div>
+          <div class="floating-icon fi-1"><i class="fa-solid fa-code"></i></div>
+          <div class="floating-icon fi-2"><i class="fa-solid fa-mobile-screen"></i></div>
+          <div class="floating-icon fi-3"><i class="fa-brands fa-figma"></i></div>
+          <div class="floating-icon fi-4"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="floating-icon fi-5"><i class="fa-solid fa-bullhorn"></i></div>
+        </div>
+      </div>
+
+      <!-- About Intro Section -->
+      <div class="section-container">
+        <div class="about-intro">
+          <div class="about-intro-text">
+            <h2 class="section-heading">At Cheetech IT Solutions</h2>
+            <div class="gold-line"></div>
+            <p>We are a growing IT Solutions company based in <strong>Tamil Nadu</strong>, dedicated to helping businesses grow through innovative technology and creative digital solutions. From startups and small businesses to established enterprises, we provide end-to-end services that transform ideas into impactful digital experiences.</p>
+            <p>With a team of experienced developers, designers, marketers, analysts, and consultants, we deliver customized solutions that improve business performance, strengthen brand identity, and accelerate digital growth.</p>
+            <button class="btn-primary mt-2" onclick="navigateTo('about')">
+              <i class="fa-solid fa-arrow-right"></i> Learn More About Us
+            </button>
+          </div>
+          <div class="about-intro-stats">
+            <div class="stat-card">
+              <div class="stat-num gold-text">50+</div>
+              <div class="stat-label">Projects Delivered</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num gold-text">30+</div>
+              <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num gold-text">10+</div>
+              <div class="stat-label">Technologies</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num red-text">98.9%</div>
+              <div class="stat-label">Client Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Choose Us Section -->
+      <div class="why-us-section">
+        <div class="section-container">
+          <div class="section-header-center">
+            <h2 class="section-heading">Why Choose Us?</h2>
+            <div class="gold-line centered"></div>
+            <p class="section-subtext">We believe every client deserves personalized attention and innovative solutions.</p>
+          </div>
+          <div class="why-us-flex">
+            <div class="why-card">
+              <div class="why-icon"><i class="fa-solid fa-users-gear"></i></div>
+              <h3>Experienced Professionals</h3>
+              <p>Experts across multiple technology domains bringing real-world experience to every project.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon"><i class="fa-solid fa-sliders"></i></div>
+              <h3>Customized Solutions</h3>
+              <p>Tailored solutions for businesses of all sizes — no one-size-fits-all approaches here.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon"><i class="fa-solid fa-lightbulb"></i></div>
+              <h3>Creative Thinking</h3>
+              <p>Innovative and creative problem-solving using modern technologies and industry best practices.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon"><i class="fa-solid fa-comments"></i></div>
+              <h3>Transparent Communication</h3>
+              <p>Open, honest communication throughout every project phase ensuring zero surprises.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon"><i class="fa-solid fa-tag"></i></div>
+              <h3>Affordable Pricing</h3>
+              <p>Flexible and affordable pricing models designed to maximize value for your investment.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon"><i class="fa-solid fa-clock"></i></div>
+              <h3>Timely Delivery</h3>
+              <p>We take deadlines seriously. Projects delivered on time without compromising quality.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon"><i class="fa-solid fa-headset"></i></div>
+              <h3>Dedicated Support</h3>
+              <p>Dedicated technical support team available to resolve issues and assist your growth.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <h3>Quality & Security</h3>
+              <p>Focus on quality, security, and scalability — building solutions that last and grow with you.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon"><i class="fa-solid fa-handshake"></i></div>
+              <h3>Long-Term Partnership</h3>
+              <p>We don't just build software — we build lasting relationships that help businesses succeed.</p>
+            </div>
+          </div>
+          <div class="why-cta">
+            <p class="why-motto">"We don't just build software — we build lasting relationships that help businesses succeed."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Strip -->
+      <div class="cta-strip">
+        <div class="section-container">
+          <div class="cta-strip-inner">
+            <div>
+              <h3>Ready to transform your business?</h3>
+              <p>Let's build something amazing together.</p>
+            </div>
+            <button class="btn-primary" onclick="navigateTo('contact')">
+              <i class="fa-solid fa-paper-plane"></i> Get In Touch
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ════════════════════════════════════════
+         ABOUT PAGE
+    ════════════════════════════════════════ -->
+    <section class="page" id="page-about">
+      <div class="page-hero">
+        <h1 class="page-hero-title">About <span class="gold-text">Us</span></h1>
+        <p class="page-hero-sub">Building Digital Success. Driving Business Growth.</p>
+      </div>
+
+      <div class="section-container">
+
+        <!-- Intro -->
+        <div class="about-full-intro">
+          <p>At <strong class="gold-text">Cheetech IT Solutions</strong>, we believe technology is more than just code — it's the foundation of innovation, growth, and lasting business success.</p>
+          <p>Based in Tamil Nadu, we are a full-service IT and Digital Solutions company helping startups, SMEs, entrepreneurs, and enterprises transform ideas into powerful digital experiences. We combine strategy, creativity, and technology to deliver solutions that don't just meet expectations — they create measurable business impact.</p>
+          <p>From designing beautiful websites and intuitive mobile applications to crafting memorable brands, executing data-driven marketing campaigns, producing engaging business videos, and providing strategic business consultancy, we partner with our clients at every stage of their digital journey.</p>
+          <div class="highlight-box">
+            <i class="fa-solid fa-quote-left"></i>
+            <p><em>To help businesses grow smarter, faster, and stronger through technology.</em></p>
+          </div>
+        </div>
+
+        <!-- Story / Vision / Mission in cards -->
+        <div class="about-cards-grid">
+          <div class="about-card-item">
+            <div class="about-card-icon"><i class="fa-solid fa-book-open"></i></div>
+            <h3>Our Story</h3>
+            <p>Cheetech IT Solutions was founded with a mission to make high-quality technology solutions accessible to businesses of every size. What started as a passionate vision has evolved into a trusted technology company delivering comprehensive digital solutions across multiple industries.</p>
+            <p>Our journey is fueled by continuous learning, customer trust, and an unwavering commitment to excellence.</p>
+          </div>
+          <div class="about-card-item">
+            <div class="about-card-icon"><i class="fa-solid fa-eye"></i></div>
+            <h3>Our Vision</h3>
+            <p>To become one of India's most trusted technology partners by delivering innovative digital solutions that empower businesses, inspire innovation, and create sustainable growth.</p>
+          </div>
+          <div class="about-card-item">
+            <div class="about-card-icon"><i class="fa-solid fa-bullseye"></i></div>
+            <h3>Our Mission</h3>
+            <ul class="about-list">
+              <li>Delivering innovative, reliable, and scalable digital solutions</li>
+              <li>Accelerating digital transformation</li>
+              <li>Building long-term relationships based on trust and transparency</li>
+              <li>Creating exceptional digital experiences</li>
+              <li>Continuously evolving with emerging technologies</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- What Makes Us Different -->
+        <div class="section-header-center mt-4">
+          <h2 class="section-heading">What Makes Us Different</h2>
+          <div class="gold-line centered"></div>
+          <p class="section-subtext">Technology alone doesn't transform businesses — people, strategy, and execution do.</p>
+        </div>
+        <div class="diff-grid">
+          <div class="diff-item"><i class="fa-solid fa-check-circle"></i> Customer-first approach</div>
+          <div class="diff-item"><i class="fa-solid fa-check-circle"></i> Tailor-made business solutions</div>
+          <div class="diff-item"><i class="fa-solid fa-check-circle"></i> Innovative thinking &amp; creative problem-solving</div>
+          <div class="diff-item"><i class="fa-solid fa-check-circle"></i> End-to-end digital services under one roof</div>
+          <div class="diff-item"><i class="fa-solid fa-check-circle"></i> Transparent communication</div>
+          <div class="diff-item"><i class="fa-solid fa-check-circle"></i> On-time delivery without compromising quality</div>
+          <div class="diff-item"><i class="fa-solid fa-check-circle"></i> Scalable and future-ready technologies</div>
+          <div class="diff-item"><i class="fa-solid fa-check-circle"></i> Dedicated post-launch support</div>
+        </div>
+
+        <!-- Founder Section -->
+        <div class="founder-section">
+          <div class="section-header-center">
+            <h2 class="section-heading">Meet Our Founder</h2>
+            <div class="gold-line centered"></div>
+          </div>
+          <div class="founder-card">
+            <div class="founder-img-wrap">
+              <img src="/assets/founder.jpg" alt="Sanjai Kumar – Founder & CEO" class="founder-img" id="founderImg" />
+              <div class="founder-badge">Founder &amp; CEO</div>
+            </div>
+            <div class="founder-info">
+              <h2 id="founderName">Sanjai Kumar</h2>
+              <p class="founder-title" id="founderTitle">Founder &amp; CEO, Cheetech IT Solutions</p>
+              <div class="gold-line"></div>
+              <p id="founderBio">Passionate tech entrepreneur and visionary leader driving Cheetech IT Solutions to deliver innovative digital experiences. With deep expertise in technology strategy and business development, Sanjai leads a talented team committed to empowering businesses through cutting-edge IT solutions.</p>
+              <div class="founder-socials">
+                <a href="https://www.linkedin.com/in/sanjai-kumar-382810232" target="_blank" class="social-link" id="founderLinkedin">
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         SERVICES PAGE
+    ════════════════════════════════════════ -->
+    <section class="page" id="page-services">
+      <div class="page-hero">
+        <h1 class="page-hero-title">Our <span class="gold-text">Services</span></h1>
+        <p class="page-hero-sub">Comprehensive Digital Solutions for Every Business Need</p>
+      </div>
+
+      <div class="section-container">
+
+        <!-- Services Grid -->
+        <div class="services-flex">
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
+            <h3>Website Design &amp; Development</h3>
+            <p>Responsive, fast, secure, and SEO-friendly websites that deliver exceptional user experiences and represent your brand professionally.</p>
+            <div class="service-tags">
+              <span>Responsive</span><span>SEO</span><span>Secure</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+            <h3>Mobile Application Development</h3>
+            <p>Custom Android, iOS, and cross-platform mobile applications designed for performance, scalability, and user engagement.</p>
+            <div class="service-tags">
+              <span>Android</span><span>iOS</span><span>Flutter</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-pen-nib"></i></div>
+            <h3>UI/UX Design</h3>
+            <p>Modern, intuitive, and user-centered interfaces that enhance customer satisfaction and improve digital experiences.</p>
+            <div class="service-tags">
+              <span>Figma</span><span>Prototyping</span><span>User Research</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <h3>UI Development</h3>
+            <p>Pixel-perfect frontend development using the latest technologies to build responsive, accessible, and high-performing web applications.</p>
+            <div class="service-tags">
+              <span>React</span><span>HTML/CSS</span><span>JavaScript</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
+            <h3>Logo &amp; Brand Identity Design</h3>
+            <p>Creative logos and comprehensive branding solutions that establish a memorable and professional business identity.</p>
+            <div class="service-tags">
+              <span>Logo</span><span>Branding</span><span>Identity</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-chart-bar"></i></div>
+            <h3>Digital Marketing</h3>
+            <p>Strategic digital marketing services including SEO, social media marketing, Google Ads, content marketing, email campaigns, and performance marketing.</p>
+            <div class="service-tags">
+              <span>SEO</span><span>Google Ads</span><span>Social Media</span>
+            </div>
+          </div>
+
+          <div class="service-card service-card-wide">
+            <div class="service-icon"><i class="fa-solid fa-video"></i></div>
+            <h3>Business Video Production &amp; Social Media Content Creation</h3>
+            <p>Bring your brand to life with professional visual storytelling. We create engaging content that connects with your audience and strengthens your online presence.</p>
+            <div class="video-services-list">
+              <span><i class="fa-solid fa-play"></i> Corporate Profile Videos</span>
+              <span><i class="fa-solid fa-play"></i> Product Showcase Videos</span>
+              <span><i class="fa-solid fa-play"></i> Promotional Videos</span>
+              <span><i class="fa-brands fa-instagram"></i> Instagram &amp; Facebook Reels</span>
+              <span><i class="fa-brands fa-youtube"></i> YouTube Videos &amp; Shorts</span>
+              <span><i class="fa-solid fa-play"></i> Event Coverage</span>
+              <span><i class="fa-solid fa-play"></i> Testimonial Videos</span>
+              <span><i class="fa-solid fa-play"></i> Video Editing &amp; Motion Graphics</span>
+              <span><i class="fa-solid fa-play"></i> Social Media Content Planning</span>
+              <span><i class="fa-solid fa-play"></i> Brand Story Videos</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-database"></i></div>
+            <h3>Data Analytics &amp; Business Intelligence</h3>
+            <p>Transform business data into actionable insights through dashboards, reports, and analytics that support smarter decision-making.</p>
+            <div class="service-tags">
+              <span>Dashboards</span><span>BI Reports</span><span>Analytics</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-briefcase"></i></div>
+            <h3>Personal &amp; Business Consultancy</h3>
+            <p>Professional consulting services that help individuals and organizations improve operations, implement technology, optimize business strategies, and achieve sustainable growth.</p>
+            <div class="service-tags">
+              <span>Strategy</span><span>Consulting</span><span>Growth</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ── Our Work / Portfolio Section ── -->
+        <div class="section-header-center mt-5">
+          <h2 class="section-heading">Our Work</h2>
+          <div class="gold-line centered"></div>
+          <p class="section-subtext">A showcase of real projects we've built and delivered for our clients.</p>
+        </div>
+
+        <div class="portfolio-flex">
+
+          <div class="portfolio-card">
+            <div class="portfolio-img-wrap">
+              <img src="/assets/project-sgs.png" alt="SGS HR Workforce Solution Website" class="portfolio-img" loading="lazy" />
+              <div class="portfolio-overlay">
+                <span class="portfolio-tag">Website Development</span>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h3>SGS HR Workforce Solution</h3>
+              <p>A professional company website for an HR workforce management firm featuring service pages, careers portal, employee management info, and corporate branding.</p>
+              <div class="portfolio-tech">
+                <span>HTML/CSS</span><span>JavaScript</span><span>Responsive</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-card">
+            <div class="portfolio-img-wrap">
+              <img src="/assets/project-sweettooth.png" alt="Sweet Tooth Ecommerce Website" class="portfolio-img" loading="lazy" />
+              <div class="portfolio-overlay">
+                <span class="portfolio-tag">E-Commerce</span>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h3>Sweet Tooth – Dessert Ecommerce</h3>
+              <p>A delightful ecommerce store for a desserts and confectionery brand featuring product listings, shopping cart, order tracking, and a beautiful warm-themed UI.</p>
+              <div class="portfolio-tech">
+                <span>React</span><span>Node.js</span><span>MongoDB</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-card">
+            <div class="portfolio-img-wrap">
+              <img src="/assets/project-video.png" alt="Video Editing & Reels Production" class="portfolio-img" loading="lazy" />
+              <div class="portfolio-overlay">
+                <span class="portfolio-tag">Video Production</span>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h3>Video Editing &amp; Content Creation</h3>
+              <p>End-to-end video production for multiple brands including Instagram Reels, YouTube Shorts, corporate profile videos, promotional content, and motion graphics.</p>
+              <div class="portfolio-tech">
+                <span>After Effects</span><span>Premiere Pro</span><span>Reels</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-card">
+            <div class="portfolio-img-wrap">
+              <img src="/assets/project-data.png" alt="Data Analytics Dashboard" class="portfolio-img" loading="lazy" />
+              <div class="portfolio-overlay">
+                <span class="portfolio-tag">Data Analytics</span>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h3>Business Intelligence Dashboard</h3>
+              <p>Interactive data analytics dashboards with KPI tracking, sales performance charts, revenue analytics, and executive-level reporting for enterprise decision-making.</p>
+              <div class="portfolio-tech">
+                <span>Power BI</span><span>Python</span><span>SQL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-card">
+            <div class="portfolio-img-wrap">
+              <img src="/assets/project-marketing.png" alt="Digital Marketing Campaign" class="portfolio-img" loading="lazy" />
+              <div class="portfolio-overlay">
+                <span class="portfolio-tag">Digital Marketing</span>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h3>Digital Marketing Campaigns</h3>
+              <p>Full-funnel digital marketing strategy including Google Ads, SEO, social media campaigns, and performance marketing driving measurable lead generation and ROI growth.</p>
+              <div class="portfolio-tech">
+                <span>Google Ads</span><span>SEO</span><span>Meta Ads</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CTA -->
+        <div class="services-cta">
+          <p>Have a project in mind?</p>
+          <button class="btn-primary" onclick="navigateTo('contact')">
+            <i class="fa-solid fa-paper-plane"></i> Start a Project
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         CAREERS PAGE
+    ════════════════════════════════════════ -->
+    <section class="page" id="page-careers">
+      <div class="page-hero">
+        <h1 class="page-hero-title">Jobs &amp; <span class="gold-text">Career</span></h1>
+        <p class="page-hero-sub">Join our growing team and shape the future of technology</p>
+      </div>
+
+      <div class="section-container">
+
+        <!-- Open Positions -->
+        <div class="section-header-center">
+          <h2 class="section-heading">Open Positions</h2>
+          <div class="gold-line centered"></div>
+          <p class="section-subtext">We're always looking for talented individuals to join our team.</p>
+        </div>
+
+        <div id="jobsContainer" class="jobs-container">
+          <div class="loading-spinner"><i class="fa-solid fa-spinner fa-spin"></i> Loading jobs...</div>
+        </div>
+
+        <!-- Application Form -->
+        <div class="application-section" id="applicationSection" style="display:none;">
+          <div class="section-header-center">
+            <h2 class="section-heading">Apply Now</h2>
+            <div class="gold-line centered"></div>
+            <p class="section-subtext">Applying for: <strong id="applyJobTitle" class="gold-text"></strong></p>
+          </div>
+          <form class="app-form glass-form" id="applicationForm" enctype="multipart/form-data" novalidate>
+            <input type="hidden" id="applyJobId" name="jobId" />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="appName"><i class="fa-solid fa-user"></i> Full Name *</label>
+                <input type="text" id="appName" name="name" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label for="appEmail"><i class="fa-solid fa-envelope"></i> Email Address *</label>
+                <input type="email" id="appEmail" name="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="appPhone"><i class="fa-solid fa-phone"></i> Phone Number</label>
+                <input type="tel" id="appPhone" name="phone" placeholder="+91 XXXXX XXXXX" />
+              </div>
+              <div class="form-group">
+                <label for="appExperience"><i class="fa-solid fa-clock"></i> Years of Experience</label>
+                <select id="appExperience" name="experience">
+                  <option value="">Select experience</option>
+                  <option value="fresher">Fresher (0 years)</option>
+                  <option value="0-1">Less than 1 year</option>
+                  <option value="1-2">1–2 years</option>
+                  <option value="2-4">2–4 years</option>
+                  <option value="4-6">4–6 years</option>
+                  <option value="6+">6+ years</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="appMessage"><i class="fa-solid fa-comment"></i> Cover Letter / Message</label>
+              <textarea id="appMessage" name="message" placeholder="Tell us about yourself and why you want to join Cheetech..." rows="4"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="appResume"><i class="fa-solid fa-file-arrow-up"></i> Upload Resume (PDF, DOC, DOCX – Max 5MB)</label>
+              <div class="file-upload-wrap">
+                <input type="file" id="appResume" name="resume" accept=".pdf,.doc,.docx" class="file-input" />
+                <label for="appResume" class="file-label">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                  <span id="fileNameDisplay">Click to select file</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn-outline" onclick="closeApplicationForm()">
+                <i class="fa-solid fa-times"></i> Cancel
+              </button>
+              <button type="submit" class="btn-primary" id="appSubmitBtn">
+                <i class="fa-solid fa-paper-plane"></i> Submit Application
+              </button>
+            </div>
+            <div id="appFormMessage" class="form-message"></div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         CONTACT PAGE
+    ════════════════════════════════════════ -->
+    <section class="page" id="page-contact">
+      <div class="page-hero">
+        <h1 class="page-hero-title">Contact <span class="gold-text">Us</span></h1>
+        <p class="page-hero-sub">We'd love to hear from you — let's start a conversation</p>
+      </div>
+
+      <div class="section-container">
+        <div class="contact-layout">
+
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <h2 class="section-heading">Get In Touch</h2>
+            <div class="gold-line"></div>
+            <p class="contact-intro">Ready to take your business to the next level? Reach out to us and let's discuss your project.</p>
+
+            <div class="contact-items">
+              <a class="contact-item" id="contactEmailLink" href="mailto:Cheetechitsolutions@gmail.com">
+                <div class="contact-item-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div>
+                  <span class="ci-label">Email</span>
+                  <span class="ci-value" id="contactEmail">Cheetechitsolutions@gmail.com</span>
+                </div>
+              </a>
+              <a class="contact-item" id="contactPhoneLink" href="tel:9047093588">
+                <div class="contact-item-icon"><i class="fa-solid fa-phone"></i></div>
+                <div>
+                  <span class="ci-label">Phone</span>
+                  <span class="ci-value" id="contactPhone">9047093588</span>
+                </div>
+              </a>
+              <a class="contact-item" id="contactWhatsappLink" href="https://wa.me/919047093588" target="_blank">
+                <div class="contact-item-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                <div>
+                  <span class="ci-label">WhatsApp</span>
+                  <span class="ci-value" id="contactWhatsapp">9047093588</span>
+                </div>
+              </a>
+              <a class="contact-item" id="contactInstagramLink" href="https://instagram.com/cheetechitsolutions" target="_blank">
+                <div class="contact-item-icon"><i class="fa-brands fa-instagram"></i></div>
+                <div>
+                  <span class="ci-label">Instagram</span>
+                  <span class="ci-value" id="contactInstagram">@cheetechitsolutions</span>
+                </div>
+              </a>
+              <a class="contact-item" id="contactLinkedinLink" href="https://www.linkedin.com/in/sanjai-kumar-382810232" target="_blank">
+                <div class="contact-item-icon"><i class="fa-brands fa-linkedin"></i></div>
+                <div>
+                  <span class="ci-label">LinkedIn</span>
+                  <span class="ci-value" id="contactLinkedin">Sanjai Kumar</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-wrap">
+            <form class="contact-form glass-form" id="contactForm" novalidate>
+              <h3>Send Us a Message</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="ctcName"><i class="fa-solid fa-user"></i> Full Name *</label>
+                  <input type="text" id="ctcName" name="name" placeholder="Your name" required />
+                </div>
+                <div class="form-group">
+                  <label for="ctcEmail"><i class="fa-solid fa-envelope"></i> Email *</label>
+                  <input type="email" id="ctcEmail" name="email" placeholder="your@email.com" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="ctcPhone"><i class="fa-solid fa-phone"></i> Phone</label>
+                  <input type="tel" id="ctcPhone" name="phone" placeholder="+91 XXXXX XXXXX" />
+                </div>
+                <div class="form-group">
+                  <label for="ctcSubject"><i class="fa-solid fa-tag"></i> Subject</label>
+                  <input type="text" id="ctcSubject" name="subject" placeholder="What is this about?" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="ctcMessage"><i class="fa-solid fa-comment"></i> Message *</label>
+                <textarea id="ctcMessage" name="message" placeholder="Tell us about your project or inquiry..." rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn-primary full-width" id="ctcSubmitBtn">
+                <i class="fa-solid fa-paper-plane"></i> Send Message
+              </button>
+              <div id="ctcFormMessage" class="form-message"></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         ADMIN CONSOLE PAGE
+    ════════════════════════════════════════ -->
+    <section class="page" id="page-admin">
+      <div class="page-hero admin-hero">
+        <h1 class="page-hero-title"><i class="fa-solid fa-shield-halved"></i> Admin <span class="gold-text">Console</span></h1>
+        <p class="page-hero-sub">Manage your website content, jobs, and inquiries</p>
+      </div>
+
+      <!-- Login Form (shown when not authenticated) -->
+      <div class="section-container" id="adminLoginSection">
+        <div class="admin-login-wrap">
+          <div class="admin-login-card glass-form">
+            <div class="admin-login-icon"><i class="fa-solid fa-lock"></i></div>
+            <h2>Admin Login</h2>
+            <p>Enter your password to access the admin console.</p>
+            <div class="form-group">
+              <label for="adminPwd"><i class="fa-solid fa-key"></i> Password</label>
+              <input type="password" id="adminPwd" placeholder="Enter admin password" autocomplete="current-password" />
+            </div>
+            <button class="btn-primary full-width" id="adminLoginBtn">
+              <i class="fa-solid fa-right-to-bracket"></i> Login
+            </button>
+            <div id="adminLoginMsg" class="form-message"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin Dashboard (shown when authenticated) -->
+      <div class="section-container" id="adminDashboard" style="display:none;">
+        <div class="admin-topbar">
+          <div class="admin-tabs">
+            <button class="admin-tab active" id="tabJobs" onclick="switchAdminTab('jobs')">
+              <i class="fa-solid fa-briefcase"></i> Manage Jobs
+            </button>
+            <button class="admin-tab" id="tabContacts" onclick="switchAdminTab('contacts')">
+              <i class="fa-solid fa-envelope"></i> Contact Queries
+            </button>
+            <button class="admin-tab" id="tabApplications" onclick="switchAdminTab('applications')">
+              <i class="fa-solid fa-file-user"></i> Job Applications
+            </button>
+            <button class="admin-tab" id="tabSettings" onclick="switchAdminTab('settings')">
+              <i class="fa-solid fa-gear"></i> Site Settings
+            </button>
+          </div>
+          <button class="btn-outline-sm" id="adminLogoutBtn">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </div>
+
+        <!-- ── Jobs Panel ── -->
+        <div class="admin-panel" id="panelJobs">
+          <div class="panel-header">
+            <h2>Job Management</h2>
+            <button class="btn-primary" id="openAddJobBtn">
+              <i class="fa-solid fa-plus"></i> Add New Job
+            </button>
+          </div>
+
+          <!-- Add/Edit Job Form -->
+          <div class="job-form-wrap glass-form" id="jobFormWrap" style="display:none;">
+            <h3 id="jobFormTitle">Add New Job</h3>
+            <form id="jobForm" novalidate>
+              <input type="hidden" id="editJobId" />
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="jobTitle">Job Title *</label>
+                  <input type="text" id="jobTitle" name="title" placeholder="e.g. Frontend Developer" required />
+                </div>
+                <div class="form-group">
+                  <label for="jobDept">Department</label>
+                  <input type="text" id="jobDept" name="department" placeholder="e.g. Engineering" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="jobLocation">Location</label>
+                  <input type="text" id="jobLocation" name="location" placeholder="e.g. Tamil Nadu / Remote" />
+                </div>
+                <div class="form-group">
+                  <label for="jobType">Job Type</label>
+                  <select id="jobType" name="type">
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Internship">Internship</option>
+                    <option value="Freelance">Freelance</option>
+                    <option value="Contract">Contract</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="jobSalary">Salary Range</label>
+                <input type="text" id="jobSalary" name="salary" placeholder="e.g. ₹3–5 LPA or Negotiable" />
+              </div>
+              <div class="form-group">
+                <label for="jobDesc">Job Description *</label>
+                <textarea id="jobDesc" name="description" rows="4" placeholder="Describe the job role and responsibilities..." required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="jobReqs">Requirements</label>
+                <textarea id="jobReqs" name="requirements" rows="3" placeholder="List key requirements (one per line)..."></textarea>
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn-outline" onclick="closeJobForm()">Cancel</button>
+                <button type="submit" class="btn-primary" id="jobSaveBtn">
+                  <i class="fa-solid fa-save"></i> Save Job
+                </button>
+              </div>
+              <div id="jobFormMsg" class="form-message"></div>
+            </form>
+          </div>
+
+          <!-- Jobs Table -->
+          <div id="adminJobsTable" class="admin-table-wrap">
+            <div class="loading-spinner"><i class="fa-solid fa-spinner fa-spin"></i> Loading jobs...</div>
+          </div>
+        </div>
+
+        <!-- ── Contacts Panel ── -->
+        <div class="admin-panel" id="panelContacts" style="display:none;">
+          <div class="panel-header">
+            <h2>Contact Queries</h2>
+            <div class="panel-actions">
+              <button class="btn-outline-sm" onclick="selectAllRows('contactsTable')"><i class="fa-solid fa-check-double"></i> Select All</button>
+              <button class="btn-primary-sm" id="downloadContactsBtn" onclick="downloadSelected('contacts')">
+                <i class="fa-solid fa-file-arrow-down"></i> Download Selected (CSV)
+              </button>
+            </div>
+          </div>
+          <div id="adminContactsTable" class="admin-table-wrap">
+            <div class="loading-spinner"><i class="fa-solid fa-spinner fa-spin"></i> Loading contacts...</div>
+          </div>
+        </div>
+
+        <!-- ── Applications Panel ── -->
+        <div class="admin-panel" id="panelApplications" style="display:none;">
+          <div class="panel-header">
+            <h2>Job Applications</h2>
+            <div class="panel-actions">
+              <button class="btn-outline-sm" onclick="selectAllRows('applicationsTable')"><i class="fa-solid fa-check-double"></i> Select All</button>
+              <button class="btn-primary-sm" id="downloadAppsBtn" onclick="downloadSelected('applications')">
+                <i class="fa-solid fa-file-arrow-down"></i> Download Selected (CSV)
+              </button>
+            </div>
+          </div>
+          <div id="adminAppsTable" class="admin-table-wrap">
+            <div class="loading-spinner"><i class="fa-solid fa-spinner fa-spin"></i> Loading applications...</div>
+          </div>
+        </div>
+
+        <!-- ── Settings Panel ── -->
+        <div class="admin-panel" id="panelSettings" style="display:none;">
+          <div class="panel-header"><h2>Site Settings</h2></div>
+          <div class="settings-grid">
+
+            <!-- Contact Info Settings -->
+            <div class="settings-card glass-form">
+              <h3><i class="fa-solid fa-address-book"></i> Contact Information</h3>
+              <form id="settingsContactForm" novalidate>
+                <div class="form-group">
+                  <label for="setEmail"><i class="fa-solid fa-envelope"></i> Email Address</label>
+                  <input type="email" id="setEmail" name="email" placeholder="contact@cheetech.com" />
+                </div>
+                <div class="form-group">
+                  <label for="setPhone"><i class="fa-solid fa-phone"></i> Phone Number</label>
+                  <input type="tel" id="setPhone" name="phone" placeholder="9876543210" />
+                </div>
+                <div class="form-group">
+                  <label for="setWhatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp Number</label>
+                  <input type="tel" id="setWhatsapp" name="whatsapp" placeholder="9876543210" />
+                </div>
+                <div class="form-group">
+                  <label for="setInstagram"><i class="fa-brands fa-instagram"></i> Instagram URL</label>
+                  <input type="url" id="setInstagram" name="instagram" placeholder="https://instagram.com/..." />
+                </div>
+                <div class="form-group">
+                  <label for="setLinkedin"><i class="fa-brands fa-linkedin"></i> LinkedIn URL</label>
+                  <input type="url" id="setLinkedin" name="linkedin" placeholder="https://linkedin.com/in/..." />
+                </div>
+                <button type="submit" class="btn-primary">
+                  <i class="fa-solid fa-save"></i> Save Contact Info
+                </button>
+                <div id="settingsContactMsg" class="form-message"></div>
+              </form>
+            </div>
+
+            <!-- Founder Settings -->
+            <div class="settings-card glass-form">
+              <h3><i class="fa-solid fa-user-tie"></i> Founder / About Page</h3>
+              <form id="settingsFounderForm" novalidate>
+                <div class="form-group">
+                  <label for="setFounderName">Founder Name</label>
+                  <input type="text" id="setFounderName" name="founderName" placeholder="e.g. Sanjai Kumar" />
+                </div>
+                <div class="form-group">
+                  <label for="setFounderTitle">Title / Designation</label>
+                  <input type="text" id="setFounderTitle" name="founderTitle" placeholder="e.g. Founder & CEO" />
+                </div>
+                <div class="form-group">
+                  <label for="setFounderBio">Bio</label>
+                  <textarea id="setFounderBio" name="founderBio" rows="4" placeholder="Short biography..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary">
+                  <i class="fa-solid fa-save"></i> Save Founder Info
+                </button>
+                <div id="settingsFounderMsg" class="form-message"></div>
+              </form>
+
+              <!-- Founder Image Upload -->
+              <div class="founder-img-upload mt-3">
+                <h4>Change Founder Photo</h4>
+                <div class="current-founder-preview">
+                  <img src="/assets/founder.jpg" alt="Current founder photo" id="adminFounderPreview" class="founder-preview-img" />
+                </div>
+                <form id="founderImgForm" enctype="multipart/form-data">
+                  <div class="file-upload-wrap">
+                    <input type="file" id="founderImgInput" name="image" accept="image/*" class="file-input" />
+                    <label for="founderImgInput" class="file-label">
+                      <i class="fa-solid fa-camera"></i>
+                      <span id="founderImgName">Choose new photo...</span>
+                    </label>
+                  </div>
+                  <button type="submit" class="btn-primary mt-2">
+                    <i class="fa-solid fa-upload"></i> Upload Photo
+                  </button>
+                  <div id="founderImgMsg" class="form-message"></div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════ -->
+  <footer class="site-footer" id="siteFooter">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-badge-container">
+          <img src="/assets/logo.png" alt="Cheetech IT Solutions" class="logo-img-blend" />
+        </div>
+        <div>
+          <p class="footer-brand-name">Cheetech IT Solution</p>
+          <p class="footer-brand-sub">Empowering Businesses with Innovative IT &amp; Digital Solutions</p>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <h4>Quick Links</h4>
+        <a href="#home" onclick="navigateTo('home')">Home</a>
+        <a href="#about" onclick="navigateTo('about')">About Us</a>
+        <a href="#services" onclick="navigateTo('services')">Services</a>
+        <a href="#careers" onclick="navigateTo('careers')">Careers</a>
+        <a href="#contact" onclick="navigateTo('contact')">Contact</a>
+        <a href="#admin" id="adminNavBtn">Admin Console</a>
+      </div>
+      <div class="footer-contact-group">
+        <h4>Contact Us</h4>
+        <a id="footerEmail" href="mailto:Cheetechitsolutions@gmail.com"><i class="fa-solid fa-envelope"></i> <span>Cheetechitsolutions@gmail.com</span></a>
+        <a id="footerPhone" href="tel:9047093588"><i class="fa-solid fa-phone"></i> <span>9047093588</span></a>
+        <a id="footerWhatsapp" href="https://wa.me/919047093588" target="_blank"><i class="fa-brands fa-whatsapp"></i> <span>WhatsApp Chat</span></a>
+      </div>
+      <div class="footer-social-group">
+        <h4>Follow Us</h4>
+        <div class="footer-socials">
+          <a href="https://instagram.com/cheetechitsolutions" target="_blank" id="footerInstagram" class="fsocial instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/sanjai-kumar-382810232" target="_blank" id="footerLinkedin" class="fsocial linkedin" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://wa.me/919047093588" target="_blank" id="footerWhatsappIcon" class="fsocial whatsapp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="mailto:Cheetechitsolutions@gmail.com" id="footerEmailIcon" class="fsocial email" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <p class="footer-location"><i class="fa-solid fa-location-dot"></i> Tamil Nadu, India</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="copyrightYear"></span> Cheetech IT Solution. All rights reserved. | Designed &amp; Developed by Cheetech IT Solutions</p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toastNotif"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
