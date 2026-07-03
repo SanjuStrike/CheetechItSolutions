@@ -287,7 +287,7 @@ img { max-width: 100%; display: block; }
   justify-content: center;
   width: 60px;
   height: 56px;
-  background-color: #ffffff;
+  background-color: #000000;
   border-radius: 50%;
   border: 2px solid var(--bright-gold);
   box-shadow: 0 0 10px rgba(255, 225, 0, 0.4);
