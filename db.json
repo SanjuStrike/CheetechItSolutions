@@ -12,6 +12,23 @@
   },
   "jobs": [
     {
+      "title": "Cameraman",
+      "department": "",
+      "location": "trichy",
+      "type": "Freelance",
+      "description": "DSLR Handling \nBasic Knowledge in Camera settings\nIndoor Videography",
+      "requirements": "Personal Camera",
+      "salary": "1000/Hour",
+      "id": "job_1783255594941",
+      "createdAt": "2026-07-05T12:46:34.941Z"
+    },
+    {
+      "title": "Test Delete Job",
+      "description": "Will be deleted",
+      "id": "job_1783255256116",
+      "createdAt": "2026-07-05T12:40:56.116Z"
+    },
+    {
       "title": "web developer",
       "department": "",
       "location": "trichy",
@@ -23,31 +40,6 @@
       "createdAt": "2026-07-03T15:34:33.939Z"
     }
   ],
-  "contacts": [
-    {
-      "name": "sidd k",
-      "email": "siddharthank45@gmail.com",
-      "phone": "06381558844",
-      "subject": "nope",
-      "message": "hi",
-      "id": "contact_1783091987715",
-      "createdAt": "2026-07-03T15:19:47.715Z",
-      "read": false
-    }
-  ],
-  "applications": [
-    {
-      "name": "sidd k",
-      "email": "siddharthank45@gmail.com",
-      "phone": "06381558844",
-      "jobId": "6a47d689a757bcef36f7c612",
-      "jobTitle": "web developer",
-      "experience": "1-2",
-      "message": "hi",
-      "resumePath": "/uploads/resumes/1783092943804_resume-1782395504023-832831260.pdf",
-      "id": "app_1783092943813",
-      "createdAt": "2026-07-03T15:35:43.813Z",
-      "status": "pending"
-    }
-  ]
+  "contacts": [],
+  "applications": []
 }

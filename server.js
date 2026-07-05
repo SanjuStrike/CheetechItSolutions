@@ -14,8 +14,10 @@ const {
   deleteJob,
   saveContact,
   getContacts,
+  deleteContact,
   saveApplication,
   getApplications,
+  deleteApplication,
 } = require('./db');
 
 const app = express();
@@ -244,10 +246,28 @@ app.get('/api/admin/contacts', requireAdmin, async (req, res) => {
   }
 });
 
+app.delete('/api/admin/contacts/:id', requireAdmin, async (req, res) => {
+  try {
+    await deleteContact(req.params.id);
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 app.get('/api/admin/applications', requireAdmin, async (req, res) => {
   try {
     const apps = await getApplications();
     res.json(apps);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.delete('/api/admin/applications/:id', requireAdmin, async (req, res) => {
+  try {
+    await deleteApplication(req.params.id);
+    res.json({ success: true });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

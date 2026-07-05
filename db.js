@@ -105,7 +105,9 @@ async function updateJob(id, jobData) {
     writeJsonDb(jsonData);
   }
   if (mongoConnected) {
-    await db.collection('jobs').updateOne({ id }, { $set: jobData });
+    // Try by _id first (getJobs maps _id→id), then fall back to custom id field
+    const query = ObjectId.isValid(id) ? { _id: new ObjectId(id) } : { id };
+    await db.collection('jobs').updateOne(query, { $set: jobData });
   }
   return jsonData.jobs[idx];
 }
@@ -116,7 +118,13 @@ async function deleteJob(id) {
   writeJsonDb(jsonData);
 
   if (mongoConnected) {
-    await db.collection('jobs').deleteOne({ id });
+    // Try by _id first (getJobs maps _id→id), then fall back to custom id field
+    const query = ObjectId.isValid(id) ? { _id: new ObjectId(id) } : { id };
+    const result = await db.collection('jobs').deleteOne(query);
+    if (result.deletedCount === 0) {
+      // Fallback: try the other field
+      await db.collection('jobs').deleteOne({ id });
+    }
   }
   return { success: true };
 }
@@ -169,6 +177,28 @@ async function getApplications() {
   return readJsonDb().applications || [];
 }
 
+async function deleteContact(id) {
+  const jsonData = readJsonDb();
+  jsonData.contacts = jsonData.contacts.filter(c => c.id !== id);
+  writeJsonDb(jsonData);
+
+  if (mongoConnected) {
+    await db.collection('contacts').deleteOne({ id });
+  }
+  return { success: true };
+}
+
+async function deleteApplication(id) {
+  const jsonData = readJsonDb();
+  jsonData.applications = jsonData.applications.filter(a => a.id !== id);
+  writeJsonDb(jsonData);
+
+  if (mongoConnected) {
+    await db.collection('applications').deleteOne({ id });
+  }
+  return { success: true };
+}
+
 module.exports = {
   connectMongo,
   getSettings,
@@ -179,6 +209,8 @@ module.exports = {
   deleteJob,
   saveContact,
   getContacts,
+  deleteContact,
   saveApplication,
   getApplications,
+  deleteApplication,
 };

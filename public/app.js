@@ -174,19 +174,127 @@ function initHeroParallax() {
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
-// SCROLL RUNNING CHEETAH
+// CHEETAH CANVAS — Chroma Key Animation (gray background removed per-pixel)
 // ══════════════════════════════════════════════════════════════════════════════
 function initScrollRunCheetah() {
+  const canvas = document.getElementById('cheetahCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  // Frame sources in chronological stride order
+  const frameSrcs = [
+    '/assets/cheetah-frame1.jpg',
+    '/assets/cheetah-frame2.jpg',
+    '/assets/cheetah-frame3.jpg',
+    '/assets/cheetah-frame4.jpg',
+  ];
+
+  // Pre-process and cache each frame as a keyed offscreen canvas (done once per frame)
+  const keyedFrames = [];
+  let loadedCount = 0;
+
+  function chromaKeyImage(imgEl) {
+    const oc = document.createElement('canvas');
+    oc.width  = imgEl.naturalWidth;
+    oc.height = imgEl.naturalHeight;
+    const octx = oc.getContext('2d', { willReadFrequently: true });
+    octx.drawImage(imgEl, 0, 0);
+
+    const imgData = octx.getImageData(0, 0, oc.width, oc.height);
+    const d = imgData.data;
+    const w = oc.width, h = oc.height;
+
+    // ── Pass 1: Hard-cut gray pixels ────────────────────────────────────────
+    // The background is a neutral gray (~RGB 115-145). Cheetah pixels are warm
+    // golden/tan with high R-B spread. Key: diff < 50 AND brightness in gray range.
+    for (let i = 0; i < d.length; i += 4) {
+      const r = d[i], g = d[i+1], b = d[i+2];
+      const max = Math.max(r, g, b);
+      const min = Math.min(r, g, b);
+      const diff  = max - min;                    // 0 = pure gray, high = saturated
+      const luma  = (r * 0.299 + g * 0.587 + b * 0.114); // perceptual brightness
+
+      // Remove pixel if it is achromatic (diff < 50) AND falls in the gray band
+      if (diff < 50 && luma > 40 && luma < 235) {
+        // Gradient fade: fully transparent at diff=0, opaque only above threshold
+        const alpha = diff < 20 ? 0 : Math.round(255 * ((diff - 20) / 30));
+        d[i + 3] = alpha;
+      }
+    }
+
+    // ── Pass 2: Erode 1 px fringe ────────────────────────────────────────────
+    // Any pixel that has a fully-transparent neighbour inherits 50% alpha reduction
+    // to clean up the gray outline left by JPEG compression at the cheetah edge.
+    const alphaMap = new Uint8Array(w * h);
+    for (let i = 0; i < d.length; i += 4) alphaMap[i >> 2] = d[i + 3];
+
+    for (let y = 1; y < h - 1; y++) {
+      for (let x = 1; x < w - 1; x++) {
+        const idx = y * w + x;
+        if (alphaMap[idx] === 0) continue;
+        // Check 4-connected neighbours
+        const hasTransparentNeighbour =
+          alphaMap[(y-1)*w + x] < 30 ||
+          alphaMap[(y+1)*w + x] < 30 ||
+          alphaMap[y*w + (x-1)] < 30 ||
+          alphaMap[y*w + (x+1)] < 30;
+        if (hasTransparentNeighbour) {
+          d[(idx << 2) + 3] = Math.round(d[(idx << 2) + 3] * 0.35);
+        }
+      }
+    }
+
+    octx.putImageData(imgData, 0, 0);
+    return oc;  // cached offscreen canvas
+  }
+
+  frameSrcs.forEach((src, i) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      keyedFrames[i] = chromaKeyImage(img);   // process ONCE, cache forever
+      loadedCount++;
+      if (loadedCount === frameSrcs.length) startAnimation();
+    };
+    img.src = src;
+  });
+
+  let currentFrame = 0;
+  let lastFrameTime = 0;
+  const FPS = 8;
+  const FRAME_INTERVAL = 1000 / FPS;
+  let isScrolling = false;
   let scrollTimeout;
+
   window.addEventListener('scroll', () => {
-    document.body.classList.add('is-scrolling');
-    
-    // Clear previous timeout and set a new one to pause the cheetah when scrolling stops
+    isScrolling = true;
     clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-      document.body.classList.remove('is-scrolling');
-    }, 250); // Pause run 250ms after scroll halts
+    scrollTimeout = setTimeout(() => { isScrolling = false; }, 280);
   }, { passive: true });
+
+  function drawFrame() {
+    const src = keyedFrames[currentFrame];
+    if (!src) return;
+    // Sync canvas height to frame aspect
+    const h = Math.round(canvas.width * src.height / src.width);
+    if (canvas.height !== h) canvas.height = h;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(src, 0, 0, canvas.width, canvas.height);
+  }
+
+  function tick(timestamp) {
+    requestAnimationFrame(tick);
+    if (!isScrolling) return;
+    if (timestamp - lastFrameTime < FRAME_INTERVAL) return;
+    lastFrameTime = timestamp;
+    currentFrame = (currentFrame + 1) % keyedFrames.length;
+    drawFrame();
+  }
+
+  function startAnimation() {
+    drawFrame();
+    requestAnimationFrame(tick);
+  }
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
@@ -779,7 +887,7 @@ async function loadAdminContacts() {
         <thead>
           <tr>
             <th><input type="checkbox" id="selectAllContacts" onchange="toggleSelectAll('contactsTable', this.checked)" /></th>
-            <th>Name</th><th>Email</th><th>Phone</th><th>Subject</th><th>Message</th><th>Date</th>
+            <th>Name</th><th>Email</th><th>Phone</th><th>Subject</th><th>Message</th><th>Date</th><th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -792,6 +900,11 @@ async function loadAdminContacts() {
               <td>${escHtml(c.subject || '—')}</td>
               <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${escHtml(c.message)}">${escHtml(c.message)}</td>
               <td>${formatDate(c.createdAt)}</td>
+              <td>
+                <button class="btn-danger-sm" onclick="deleteContactAdmin('${c.id}', '${escHtml(c.name)}')">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
             </tr>`).join('')}
         </tbody>
       </table>`;
@@ -799,6 +912,25 @@ async function loadAdminContacts() {
     wrap.innerHTML = '<p style="color:var(--pure-red);padding:2rem">Failed to load contacts.</p>';
   }
 }
+
+window.deleteContactAdmin = async function(id, name) {
+  if (!confirm(`Delete contact query from: "${name}"?\n\nThis action cannot be undone.`)) return;
+  try {
+    const res = await fetch(`/api/admin/contacts/${id}`, {
+      method: 'DELETE',
+      headers: { 'x-admin-token': adminToken },
+    });
+    const data = await res.json();
+    if (res.ok && data.success) {
+      showToast('Contact query deleted.', 'success');
+      loadAdminContacts();
+    } else {
+      showToast('Delete failed.', 'error');
+    }
+  } catch (e) {
+    showToast('Network error.', 'error');
+  }
+};
 
 // ── Admin Applications ───────────────────────────────────────────────────────
 async function loadAdminApplications() {
@@ -816,7 +948,7 @@ async function loadAdminApplications() {
         <thead>
           <tr>
             <th><input type="checkbox" id="selectAllApps" onchange="toggleSelectAll('applicationsTable', this.checked)" /></th>
-            <th>Name</th><th>Email</th><th>Phone</th><th>Job</th><th>Experience</th><th>Resume</th><th>Date</th>
+            <th>Name</th><th>Email</th><th>Phone</th><th>Job</th><th>Experience</th><th>Resume</th><th>Date</th><th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -830,6 +962,11 @@ async function loadAdminApplications() {
               <td>${escHtml(a.experience || '—')}</td>
               <td>${a.resumePath ? `<a href="${a.resumePath}" target="_blank" style="color:var(--bright-gold)"><i class="fa-solid fa-file"></i> View</a>` : '—'}</td>
               <td>${formatDate(a.createdAt)}</td>
+              <td>
+                <button class="btn-danger-sm" onclick="deleteAppAdmin('${a.id}', '${escHtml(a.name)}')">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
             </tr>`).join('')}
         </tbody>
       </table>`;
@@ -837,6 +974,25 @@ async function loadAdminApplications() {
     wrap.innerHTML = '<p style="color:var(--pure-red);padding:2rem">Failed to load applications.</p>';
   }
 }
+
+window.deleteAppAdmin = async function(id, name) {
+  if (!confirm(`Delete application from: "${name}"?\n\nThis action cannot be undone.`)) return;
+  try {
+    const res = await fetch(`/api/admin/applications/${id}`, {
+      method: 'DELETE',
+      headers: { 'x-admin-token': adminToken },
+    });
+    const data = await res.json();
+    if (res.ok && data.success) {
+      showToast('Job application deleted.', 'success');
+      loadAdminApplications();
+    } else {
+      showToast('Delete failed.', 'error');
+    }
+  } catch (e) {
+    showToast('Network error.', 'error');
+  }
+};
 
 // ── Select All / Download ─────────────────────────────────────────────────────
 window.selectAllRows = function(tableId) {

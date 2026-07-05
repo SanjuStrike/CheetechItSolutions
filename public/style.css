@@ -626,40 +626,20 @@ img { max-width: 100%; display: block; }
   transition: transform 0.1s ease-out;
 }
 
-/* Running Cheetah Parallax Image Layer */
-.cheetah-animated-frames {
-  width: 100%;
+/* Running Cheetah — Canvas (chroma-keyed, no background) */
+.cheetah-canvas {
+  position: absolute;
   max-width: 480px;
-  aspect-ratio: 1.85;
-  background-size: cover;
-  background-position: center top; /* Align to the top of the container so scaling is proportional */
-  background-repeat: no-repeat;
-  mix-blend-mode: screen; /* Blends out the black background */
-  clip-path: inset(4px 4px 18% 4px); /* Proportional bottom crop to ensure text is 100% removed on all screens */
-  transition: transform 0.3s ease;
-  animation: cheetah-running-frames 0.8s infinite steps(1); /* Smooth and natural stride speed */
-  animation-play-state: paused; /* Paused by default, only runs on scroll */
-  filter: contrast(3.2) brightness(0.6) saturate(1.4) drop-shadow(0 0 18px rgba(255, 215, 0, 0.4)); /* Strong contrast/brightness shift to force dark gray to absolute black, plus rich saturation */
+  width: 100%;
+  height: auto;
   z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 18px rgba(255, 215, 0, 0.35));
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
-
-/* Play animation while scrolling */
-.is-scrolling .cheetah-animated-frames {
-  animation-play-state: running;
-}
-
-.cheetah-animated-frames:hover {
-  transform: scale(1.04);
-  filter: contrast(3.2) brightness(0.7) saturate(1.6) drop-shadow(0 0 25px rgba(255, 215, 0, 0.55));
-}
-
-/* Cycle through 5 frames in anatomically correct chronological order */
-@keyframes cheetah-running-frames {
-  0%   { background-image: url('/assets/cheetah-frame2.jpg'); } /* Second 1: Mid-Stride Suspension */
-  20%  { background-image: url('/assets/cheetah-frame1.jpg'); } /* Second 2: Pushing Off */
-  40%  { background-image: url('/assets/cheetah-frame5.jpg'); } /* Second 3: Full Extension (Apex) */
-  60%  { background-image: url('/assets/cheetah-frame3.jpg'); } /* Second 4: Rear Leg Recovery */
-  80%  { background-image: url('/assets/cheetah-frame4.jpg'); } /* Second 5: Re-coil */
+.cheetah-canvas:hover {
+  filter: drop-shadow(0 8px 26px rgba(255, 215, 0, 0.55));
+  transform: scale(1.03);
 }
 
 /* Floating Icon override for absolute positioning */
