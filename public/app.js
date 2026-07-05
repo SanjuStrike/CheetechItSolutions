@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initRouter();
   initHamburger();
   initParticles();
+  initHeroParallax();
+  initScrollRunCheetah();
   loadSettings();
   document.getElementById('copyrightYear').textContent = new Date().getFullYear();
 
@@ -140,6 +142,51 @@ function initParticles() {
     `;
     container.appendChild(dot);
   }
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// HERO PARALLAX ANIMATION
+// ══════════════════════════════════════════════════════════════════════════════
+function initHeroParallax() {
+  const container = document.getElementById('heroParallax');
+  if (!container) return;
+
+  container.addEventListener('mousemove', (e) => {
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    container.querySelectorAll('.parallax-layer').forEach(layer => {
+      const depth = parseFloat(layer.getAttribute('data-depth')) || 0.5;
+      const moveX = x * depth * 0.08;
+      const moveY = y * depth * 0.08;
+      
+      // Offset translation dynamically based on depth
+      layer.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+    });
+  });
+
+  container.addEventListener('mouseleave', () => {
+    container.querySelectorAll('.parallax-layer').forEach(layer => {
+      layer.style.transform = 'translate3d(0, 0, 0)';
+    });
+  });
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// SCROLL RUNNING CHEETAH
+// ══════════════════════════════════════════════════════════════════════════════
+function initScrollRunCheetah() {
+  let scrollTimeout;
+  window.addEventListener('scroll', () => {
+    document.body.classList.add('is-scrolling');
+    
+    // Clear previous timeout and set a new one to pause the cheetah when scrolling stops
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      document.body.classList.remove('is-scrolling');
+    }, 250); // Pause run 250ms after scroll halts
+  }, { passive: true });
 }
 
 // ══════════════════════════════════════════════════════════════════════════════

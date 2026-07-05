@@ -105,13 +105,19 @@
             </button>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="hero-orb"></div>
-          <div class="floating-icon fi-1"><i class="fa-solid fa-code"></i></div>
-          <div class="floating-icon fi-2"><i class="fa-solid fa-mobile-screen"></i></div>
-          <div class="floating-icon fi-3"><i class="fa-brands fa-figma"></i></div>
-          <div class="floating-icon fi-4"><i class="fa-solid fa-chart-line"></i></div>
-          <div class="floating-icon fi-5"><i class="fa-solid fa-bullhorn"></i></div>
+        <div class="hero-visual" id="heroParallax">
+          <div class="parallax-bg"></div>
+          <div class="parallax-orb"></div>
+          
+          <!-- Running Cheetah Animated Frame Parallax Layer -->
+          <div class="cheetah-animated-frames parallax-layer" data-depth="0.8"></div>
+
+          <!-- Floating Tech Badges (Parallax layers) -->
+          <div class="floating-icon fi-1 parallax-layer" data-depth="0.4"><i class="fa-solid fa-code"></i></div>
+          <div class="floating-icon fi-2 parallax-layer" data-depth="0.6"><i class="fa-solid fa-mobile-screen"></i></div>
+          <div class="floating-icon fi-3 parallax-layer" data-depth="0.3"><i class="fa-brands fa-figma"></i></div>
+          <div class="floating-icon fi-4 parallax-layer" data-depth="0.5"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="floating-icon fi-5 parallax-layer" data-depth="0.7"><i class="fa-solid fa-bullhorn"></i></div>
         </div>
       </div>
 
@@ -959,7 +965,7 @@
           <img src="/assets/logo.png" alt="Cheetech IT Solutions" class="logo-img-blend" />
         </div>
         <div>
-          <p class="footer-brand-name">Cheetech IT Solutions</p>
+          <p class="footer-brand-name">Cheetech IT Solution</p>
           <p class="footer-brand-sub">Empowering Businesses with Innovative IT &amp; Digital Solutions</p>
         </div>
       </div>
@@ -990,12 +996,21 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; <span id="copyrightYear"></span> Cheetech IT Solutions. All rights reserved. | Designed &amp; Developed by Cheetech IT Solutions</p>
+      <p>&copy; <span id="copyrightYear"></span> Cheetech IT Solution. All rights reserved. | Designed &amp; Developed by Cheetech IT Solutions</p>
     </div>
   </footer>
 
   <!-- Toast Notification -->
   <div class="toast" id="toastNotif"></div>
+
+  <!-- Preloading frames to avoid flickering during animation loops -->
+  <div style="display:none; visibility:hidden; width:0; height:0; overflow:hidden;">
+    <img src="/assets/cheetah-frame1.jpg" />
+    <img src="/assets/cheetah-frame2.jpg" />
+    <img src="/assets/cheetah-frame3.jpg" />
+    <img src="/assets/cheetah-frame4.jpg" />
+    <img src="/assets/cheetah-frame5.jpg" />
+  </div>
 
   <script src="app.js"></script>
 </body>

@@ -7,10 +7,22 @@
     "linkedin": "https://www.linkedin.com/in/sanjai-kumar-382810232",
     "founderName": "Sanjai Kumar",
     "founderTitle": "Founder & CEO",
-    "founderBio": "Passionate tech entrepreneur and visionary leader driving Cheetech IT Solutions to deliver innovative digital experiences. Data Driven business solutions",
+    "founderBio": "Passionate tech entrepreneur and visionary leader driving Cheetech IT Solutions to deliver innovative digital experiences.",
     "founderImage": "/assets/founder.jpg"
   },
-  "jobs": [],
+  "jobs": [
+    {
+      "title": "web developer",
+      "department": "",
+      "location": "trichy",
+      "type": "Full-time",
+      "description": "NO work",
+      "requirements": "Adhaar",
+      "salary": "3LPA",
+      "id": "job_1783092873939",
+      "createdAt": "2026-07-03T15:34:33.939Z"
+    }
+  ],
   "contacts": [
     {
       "name": "sidd k",

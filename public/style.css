@@ -590,35 +590,79 @@ img { max-width: 100%; display: block; }
   flex-wrap: wrap;
 }
 
-/* Hero Visual / Floating Icons */
+/* Hero Visual & Parallax Container */
 .hero-visual {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  height: 420px;
-}
-.hero-orb {
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, rgba(255,225,0,0.15), rgba(240,0,0,0.08), transparent 70%);
-  border: 1px solid rgba(255,225,0,0.2);
-  animation: orb-rotate 12s linear infinite;
-  position: relative;
-}
-.hero-orb::before {
-  content: '';
-  position: absolute;
-  inset: 15px;
-  border-radius: 50%;
-  border: 1px dashed rgba(255,225,0,0.15);
-  animation: orb-rotate 8s linear infinite reverse;
-}
-@keyframes orb-rotate {
-  to { transform: rotate(360deg); }
+  height: 480px;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: radial-gradient(circle at center, rgba(255, 225, 0, 0.03), transparent 70%);
 }
 
+.parallax-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 225, 0, 0.05), rgba(240, 0, 0, 0.02), transparent 60%);
+  pointer-events: none;
+}
+
+.parallax-orb {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,225,0,0.1), rgba(240,0,0,0.05), transparent 75%);
+  border: 1px solid rgba(255,225,0,0.15);
+  animation: orb-rotate 16s linear infinite;
+  pointer-events: none;
+}
+
+.parallax-layer {
+  position: absolute;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* Running Cheetah Parallax Image Layer */
+.cheetah-animated-frames {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1.85;
+  background-size: cover;
+  background-position: center top; /* Align to the top of the container so scaling is proportional */
+  background-repeat: no-repeat;
+  mix-blend-mode: screen; /* Blends out the black background */
+  clip-path: inset(4px 4px 18% 4px); /* Proportional bottom crop to ensure text is 100% removed on all screens */
+  transition: transform 0.3s ease;
+  animation: cheetah-running-frames 0.8s infinite steps(1); /* Smooth and natural stride speed */
+  animation-play-state: paused; /* Paused by default, only runs on scroll */
+  filter: contrast(3.2) brightness(0.6) saturate(1.4) drop-shadow(0 0 18px rgba(255, 215, 0, 0.4)); /* Strong contrast/brightness shift to force dark gray to absolute black, plus rich saturation */
+  z-index: 2;
+}
+
+/* Play animation while scrolling */
+.is-scrolling .cheetah-animated-frames {
+  animation-play-state: running;
+}
+
+.cheetah-animated-frames:hover {
+  transform: scale(1.04);
+  filter: contrast(3.2) brightness(0.7) saturate(1.6) drop-shadow(0 0 25px rgba(255, 215, 0, 0.55));
+}
+
+/* Cycle through 5 frames in anatomically correct chronological order */
+@keyframes cheetah-running-frames {
+  0%   { background-image: url('/assets/cheetah-frame2.jpg'); } /* Second 1: Mid-Stride Suspension */
+  20%  { background-image: url('/assets/cheetah-frame1.jpg'); } /* Second 2: Pushing Off */
+  40%  { background-image: url('/assets/cheetah-frame5.jpg'); } /* Second 3: Full Extension (Apex) */
+  60%  { background-image: url('/assets/cheetah-frame3.jpg'); } /* Second 4: Rear Leg Recovery */
+  80%  { background-image: url('/assets/cheetah-frame4.jpg'); } /* Second 5: Re-coil */
+}
+
+/* Floating Icon override for absolute positioning */
 .floating-icon {
   position: absolute;
   width: 52px;
@@ -632,17 +676,55 @@ img { max-width: 100%; display: block; }
   font-size: 1.3rem;
   color: var(--bright-gold);
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  animation: float-anim 4s ease-in-out infinite;
+  pointer-events: none;
 }
-.fi-1 { top: 5%;  left: 50%; animation-delay: 0s;    }
-.fi-2 { top: 20%; left: 10%; animation-delay: 0.8s;  }
-.fi-3 { top: 60%; left: 5%;  animation-delay: 1.6s;  }
-.fi-4 { top: 75%; left: 55%; animation-delay: 2.4s;  }
-.fi-5 { top: 15%; left: 80%; animation-delay: 3.2s;  }
 
-@keyframes float-anim {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-14px); }
+/* Default vertical positions for floating icons in grid */
+.fi-1 { top: 10%;  left: 20%; }
+.fi-2 { top: 25%;  left: 75%; }
+.fi-3 { top: 55%;  left: 15%; }
+.fi-4 { top: 75%;  left: 70%; }
+.fi-5 { top: 40%;  left: 80%; }
+
+/* Keyframe Animations */
+@keyframes orb-rotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes cheetah-gallop {
+  0% {
+    transform: translateY(0) scaleY(1) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-12px) scaleY(0.95) rotate(3deg);
+  }
+}
+
+@keyframes cheetah-run-loop {
+  0% {
+    left: -280px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes leg-swing {
+  0% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes tail-wag {
+  0% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(15deg);
+  }
 }
 
 /* Hero Particles */
